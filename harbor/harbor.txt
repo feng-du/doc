@@ -1,0 +1,28 @@
+
+ssh-keygen -t rsa
+
+Copy ssh pub key from local to server
+ssh user@lnxhost "umask 077; test -d .ssh || mkdir .ssh ; cat >> .ssh/authorized_keys || exit 1" < C:\Users\fengdu\.ssh\id_rsa_hyperV.pub
+Correct the file on linux 
+vi ~/.ssh/authorized_keys
+Reformatting authorized_keys to single-lines is all I needed
+
+copy current user ssh to remote server (linux)
+ssh-copy-id -i ~/.ssh/id_rsa.pub openshift-master.cefcfco.com
+
+
+
+python Command not found
+sudo ln -s /usr/bin/python2.7 /usr/bin/python
+
+
+
+Open terminal and type
+
+wget "http://domain.com/directory/4?action=AttachFile&do=view&target=file.tgz" 
+to download the file to the current directory.
+
+wget  -P /home/omio/Desktop/ "http://thecanadiantestbox.x10.mx/CC.zip"
+will download the file to /home/omio/Desktop
+
+wget  -O /home/omio/Desktop/NewFileName "http://thecanadiantestbox.x10.mx/CC.zip"
