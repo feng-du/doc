@@ -25,7 +25,7 @@ rpm -Uvh https://releases.ansible.com/ansible/rpm/release/epel-7-x86_64/ansible-
 shutdown -r now
 ```
 
-## Prepared NetworkManager
+## Prepared NetworkManager (master & node)
 ```
 -- Check NetworkManager state
 systemctl | grep "NetworkManager.*running"
@@ -35,7 +35,7 @@ systemctl start NetworkManager
 systemctl enable NetworkManager
 ```
 
-## Prepared docker registry mirrors
+## Prepared docker registry mirrors (master & node)
 ```
 vi /etc/sysconfig/docker
 
