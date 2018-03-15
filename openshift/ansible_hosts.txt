@@ -4,13 +4,13 @@ nodes
 etcd
 
 [masters]
-dev.cefcfco.com
+dev.cefcfco.com openshift_schedulable=true
 
 [etcd]
 dev.cefcfco.com
 
 [nodes]
-dev.cefcfco.com openshift_node_labels="{'region': 'infra', 'zone': 'default'}"
+dev.cefcfco.com openshift_schedulable=true openshift_node_labels="{'region': 'infra', 'zone': 'default'}"
 
 [OSEv3:vars]
 ansible_ssh_user=root
@@ -33,6 +33,9 @@ template_service_broker_image_version=v3.9.0
 openshift_metrics_image_version=v3.9.0
 
 osm_use_cockpit=true
+
+openshift_metrics_install_metrics=True
+openshift_logging_install_logging=True
 
 openshift_master_identity_providers=[{'name': 'htpasswd_auth', 'login': 'true', 'challenge': 'true', 'kind': 'HTPasswdPasswordIdentityProvider', 'filename': '/etc/origin/master/htpasswd'}]
 

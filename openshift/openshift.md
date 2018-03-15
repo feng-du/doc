@@ -60,7 +60,7 @@ vi /etc/ansible/hosts
 2. checkout openshift-origin
     ```
     git clone https://github.com/openshift/openshift-ansible.git
-    git checkout release-3.9
+    -- git checkout release-3.9
 
     ```
 3. install
@@ -72,6 +72,13 @@ vi /etc/ansible/hosts
     ansible-playbook -i /etc/ansible/hosts openshift-ansible/playbooks/deploy_cluster.yml -v
     ```
 
+
+## Config Admin User (master)
+```
+htpasswd -b /etc/origin/master/htpasswd admin 123.123a
+oc adm policy add-cluster-role-to-user cluster-admin admin
+systemctl restart origin-master-api
+```
 
 ## Utility
 ```
