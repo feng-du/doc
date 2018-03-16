@@ -16,7 +16,7 @@ change-to-your-ip cefcfco.com
 ## Install required package (master & node)
 ```
 yum update
-yum install epel-release docker ansible git net-tools NetworkManager
+yum install epel-release docker ansible git net-tools NetworkManager java-1.8.0-openjdk-headless "@Development Tools"
 
 -- if ansible version less then 2.4.3 then update
 ansible --version
@@ -60,7 +60,7 @@ vi /etc/ansible/hosts
 2. checkout openshift-origin
     ```
     git clone https://github.com/openshift/openshift-ansible.git
-    -- git checkout release-3.9
+    git checkout release-3.9
 
     ```
 3. install
@@ -69,7 +69,8 @@ vi /etc/ansible/hosts
     ls openshift-ansible/playbooks/deploy_cluster.yml
 
     -- install
-    ansible-playbook -i /etc/ansible/hosts openshift-ansible/playbooks/deploy_cluster.yml -v
+    ansible-playbook -i /etc/ansible/hosts openshift-ansible/playbooks/prerequisites.yml -vvv
+    ansible-playbook -i /etc/ansible/hosts openshift-ansible/playbooks/deploy_cluster.yml -vvv
     ```
 
 
@@ -94,4 +95,11 @@ ssh user@lnxhost "umask 077; test -d .ssh || mkdir .ssh ; cat >> .ssh/authorized
 -- Correct the file on linux
 vi ~/.ssh/authorized_keys
 
+```
+
+```
+-- Copy folder from local to remote
+scp -r /c/Users/fengdu/workspace/docker/openshift-ansible root@dev.cefcfco.com:
+
+scp -r /c/Users/fengdu/workspace/doc/openshift/hosts root@feng.com:/etc/ansible/
 ```

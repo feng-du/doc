@@ -3,15 +3,6 @@ masters
 nodes
 etcd
 
-[masters]
-dev.cefcfco.com openshift_schedulable=true
-
-[etcd]
-dev.cefcfco.com
-
-[nodes]
-dev.cefcfco.com openshift_schedulable=true openshift_node_labels="{'region': 'infra', 'zone': 'default'}"
-
 [OSEv3:vars]
 ansible_ssh_user=root
 enable_excluders=False
@@ -26,11 +17,6 @@ deployment_type=origin
 openshift_deployment_type=origin
 
 openshift_release=v3.9.0
-openshift_pkg_version=v3.9.0
-openshift_image_tag=v3.9.0
-openshift_service_catalog_image_version=v3.9.0
-template_service_broker_image_version=v3.9.0
-openshift_metrics_image_version=v3.9.0
 
 osm_use_cockpit=true
 
@@ -41,3 +27,12 @@ openshift_master_identity_providers=[{'name': 'htpasswd_auth', 'login': 'true', 
 
 openshift_public_hostname=dev.cefcfco.com
 openshift_master_default_subdomain=apps.dev.cefcfco.com
+
+[masters]
+dev.cefcfco.com openshift_schedulable=true
+
+[etcd]
+dev.cefcfco.com
+
+[nodes]
+dev.cefcfco.com openshift_schedulable=true openshift_node_labels="{'region': 'infra', 'zone': 'default'}"
