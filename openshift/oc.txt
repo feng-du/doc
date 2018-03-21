@@ -1,0 +1,5 @@
+oc get pods --all-namespaces
+
+oc describe pod <pod name>
+
+oc get nodes --show-labels

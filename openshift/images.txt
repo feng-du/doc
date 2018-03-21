@@ -1,3 +1,11 @@
-docker.io/openshift/openvswitch   v3.9.0              2bb04be39b01        10 hours ago        1.48 GB
-docker.io/openshift/node          v3.9.0              8905b1bbd2e7        10 hours ago        1.48 GB
-docker.io/openshift/origin        v3.9.0              a1393f1ecd55        10 hours ago        1.25 GB
+REPOSITORY                                   TAG                 IMAGE ID            CREATED             SIZE
+docker.io/openshift/openvswitch              v3.9.0              2bb04be39b01        5 days ago          1.48 GB
+docker.io/openshift/node                     v3.9.0              8905b1bbd2e7        5 days ago          1.48 GB
+docker.io/openshift/origin                   v3.9.0              a1393f1ecd55        5 days ago          1.25 GB
+docker.io/cockpit/kubernetes                 latest              ae2783495ab8        11 days ago         283 MB
+registry.fedoraproject.org/latest/etcd       latest              5fd68510b761        2 weeks ago         309 MB
+docker.io/openshift/origin-web-console       v3.9.0              41c9caf26323        3 weeks ago         497 MB
+docker.io/openshift/origin-docker-registry   v3.9.0-alpha.4      7d89173426f2        7 weeks ago         466 MB
+docker.io/openshift/origin-haproxy-router    v3.9.0-alpha.4      12ee5ecc134e        7 weeks ago         1.28 GB
+docker.io/openshift/origin-deployer          v3.9.0-alpha.4      b34d3e1c617e        7 weeks ago         1.26 GB
+docker.io/openshift/origin-pod               v3.9.0-alpha.4      0d5501fb4d68        7 weeks ago         229 MB

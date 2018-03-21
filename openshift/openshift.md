@@ -40,8 +40,17 @@ systemctl enable NetworkManager
 vi /etc/sysconfig/docker
 
 -- change this line 
-OPTIONS=' --selinux-enabled     --log-driver=journald  --signature-verification=False --registry-mirror=https://2h7decqf.mirror.aliyuncs.com'
+OPTIONS=' --selinux-enabled     --log-driver=journald  --signature-verification=False --registry-mirror=https://2h7decqf.mirror.aliyuncs.com
+--insecure-registry=172.30.0.0/16'
 
+
+tee /etc/docker/daemon.json <<-'EOF'
+{
+  "registry-mirrors": ["https://2h7decqf.mirror.aliyuncs.com"]
+}
+EOF
+
+systemctl daemon-reload
 systemctl restart docker
 systemctl enable docker
 ```
