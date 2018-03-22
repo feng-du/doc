@@ -9,3 +9,4 @@ docker.io/openshift/origin-docker-registry   v3.9.0-alpha.4      7d89173426f2   
 docker.io/openshift/origin-haproxy-router    v3.9.0-alpha.4      12ee5ecc134e        7 weeks ago         1.28 GB
 docker.io/openshift/origin-deployer          v3.9.0-alpha.4      b34d3e1c617e        7 weeks ago         1.26 GB
 docker.io/openshift/origin-pod               v3.9.0-alpha.4      0d5501fb4d68        7 weeks ago         229 MB
+registry.fedoraproject.org/f26/etcd          latest              6e026de3efc9        6 days ago          302 MB
