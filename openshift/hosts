@@ -2,14 +2,11 @@
 masters
 nodes
 etcd
+nfs
 
 [OSEv3:vars]
 ansible_ssh_user=root
-enable_excluders=False
-enable_docker_excluder=False
-ansible_service_broker_install=False
 
-containerized=True
 os_sdn_network_plugin_name='redhat/openshift-ovs-multitenant'
 openshift_disable_check=disk_availability,docker_storage,memory_availability,docker_image_availability,package_version
 
@@ -18,12 +15,18 @@ openshift_docker_options='--selinux-enabled --insecure-registry 172.30.0.0/16'
 deployment_type=origin
 openshift_deployment_type=origin
 
-openshift_release=v3.9.0
+openshift_release=v3.7
 
-osm_use_cockpit=true
+openshift_hosted_etcd_storage_kind=nfs
+openshift_hosted_etcd_storage_nfs_options="*(rw,root_squash,sync,no_wdelay)"
+openshift_hosted_etcd_storage_nfs_directory=/opt/osev3-etcd
+openshift_hosted_etcd_storage_volume_name=etcd-vol2
+openshift_hosted_etcd_storage_access_modes=["ReadWriteOnce"]
+openshift_hosted_etcd_storage_volume_size=1G
+openshift_hosted_etcd_storage_labels={'storage': 'etcd'}
 
-openshift_metrics_install_metrics=True
-openshift_logging_install_logging=True
+ansible_service_broker_image_prefix=openshift3/
+ansible_service_broker_registry_url="registry.access.redhat.com"
 
 openshift_master_identity_providers=[{'name': 'htpasswd_auth', 'login': 'true', 'challenge': 'true', 'kind': 'HTPasswdPasswordIdentityProvider', 'filename': '/etc/origin/master/htpasswd'}]
 
@@ -31,10 +34,13 @@ openshift_public_hostname=dev.cefcfco.com
 openshift_master_default_subdomain=apps.dev.cefcfco.com
 
 [masters]
-dev.cefcfco.com openshift_schedulable=true
+10.1.2.247 openshift_schedulable=true
+
+[nfs]
+10.1.2.247
 
 [etcd]
-dev.cefcfco.com
+10.1.2.247
 
 [nodes]
-dev.cefcfco.com openshift_schedulable=true openshift_node_labels="{'region': 'infra', 'zone': 'default'}"
+10.1.2.247 openshift_schedulable=true openshift_node_labels="{'region': 'infra', 'zone': 'default'}"
