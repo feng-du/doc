@@ -16,11 +16,6 @@ deployment_type=origin
 openshift_deployment_type=origin
 
 openshift_release=v3.7
-openshift_service_catalog_image_version=v3.7.1
-template_service_broker_image_version=v3.7.1
-openshift_metrics_image_version=v3.7.1
-
-osm_use_cockpit=true
 
 openshift_metrics_install_metrics=true
 openshift_logging_install_logging=true
@@ -48,7 +43,7 @@ feng.com openshift_schedulable=true
 feng.com
 
 [etcd]
-etcd.feng.com
+feng.com
 
 [nodes]
 feng.com openshift_schedulable=true openshift_node_labels="{'region': 'infra', 'zone': 'default'}"
