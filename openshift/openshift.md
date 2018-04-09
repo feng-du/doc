@@ -20,7 +20,7 @@ yum install epel-release docker ansible git net-tools NetworkManager java-1.8.0-
 
 -- if ansible version less then 2.4.3 then update
 ansible --version
-rpm -Uvh https://releases.ansible.com/ansible/rpm/release/epel-7-x86_64/ansible-2.4.3.0-1.el7.ans.noarch.rpm
+rpm -Uvh http://releases.ansible.com/ansible/rpm/release/epel-7-x86_64/ansible-2.4.4.0-1.el7.ans.noarch.rpm
 
 shutdown -r now
 ```
