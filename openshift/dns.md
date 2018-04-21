@@ -1,5 +1,6 @@
 ## Install dnsmasq
 ```
+yum install bind-utils
 yum install dnsmasq
 
 vi /etc/dnsmasq.d/openshift-cluster.conf
