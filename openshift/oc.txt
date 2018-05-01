@@ -3,3 +3,9 @@ oc get pods --all-namespaces
 oc describe pod <pod name>
 
 oc get nodes --show-labels
+
+
+docker login -u feng -p gwiIgWOypXhirM_NMPHxGPNd0MiRm6xzSVl1bjUwNHs https://docker-registry-default.apps.feng.com
+
+-- debug image
+docker run -it --rm image-name sh
