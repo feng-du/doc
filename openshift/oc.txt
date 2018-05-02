@@ -7,5 +7,12 @@ oc get nodes --show-labels
 
 docker login -u feng -p gwiIgWOypXhirM_NMPHxGPNd0MiRm6xzSVl1bjUwNHs https://docker-registry-default.apps.feng.com
 
+docker build -t fengdu/say .
+
 -- debug image
 docker run -it --rm image-name sh
+docker run --rm fengdu/say flite -h
+
+-- volume
+docker run --rm -v C:\Users\fengs\workspace\go\src\github.com\fengdu\say-hello\backend\data:/data -w /data fengdu/say flite -t hello -o output.wav
+docker run --rm -v $(pwd)/data:/data -w /data fengdu/say flite -t hello -o output.wav
