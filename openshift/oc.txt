@@ -16,3 +16,7 @@ docker run --rm fengdu/say flite -h
 -- volume
 docker run --rm -v C:\Users\fengs\workspace\go\src\github.com\fengdu\say-hello\backend\data:/data -w /data fengdu/say flite -t hello -o output.wav
 docker run --rm -v $(pwd)/data:/data -w /data fengdu/say flite -t hello -o output.wav
+
+-- s2i
+s2i build . --context-dir=js/ -e NPM_MIRROR=https://registry.npm.taobao.org/ -e NODE_ENV=build:241 fengdu/nodejs-8-centos7 fengdu/nodejs-demo
+docker run --rm fengdu/nodejs-8-centos7 cat /usr/libexec/s2i/assemble
