@@ -16,7 +16,8 @@ change-to-your-ip cefcfco.com
 ## Install required package (master & node)
 ```
 yum update
-yum install epel-release docker ansible git net-tools NetworkManager java-1.8.0-openjdk-headless "@Development Tools"
+yum install wget git net-tools bind-utils yum-utils iptables-services bridge-utils bash-completion kexec-tools sos psacct
+yum install java-1.8.0-openjdk-headless
 yum install python-passlib
 
 -- if ansible version less then 2.4.3 then update

@@ -2,10 +2,12 @@
 masters
 nodes
 etcd
-glusterfs
+nfs
 
 [OSEv3:vars]
 ansible_ssh_user=root
+enable_excluders=False
+enable_docker_excluder=False
 
 containerized=True
 os_sdn_network_plugin_name='redhat/openshift-ovs-multitenant'
@@ -15,6 +17,8 @@ openshift_docker_options='--selinux-enabled --insecure-registry 172.30.0.0/16'
 
 deployment_type=origin
 openshift_deployment_type=origin
+
+openshift_repos_enable_testing=True
 
 openshift_release=v3.9
 openshift_pkg_version=v3.9.0
@@ -26,26 +30,30 @@ openshift_metrics_image_version=v3.9
 openshift_metrics_install_metrics=true
 openshift_logging_install_logging=true
 
-ansible_service_broker_image_prefix=registry.access.redhat.com/openshift3/ose-
+openshift_hosted_etcd_storage_kind=nfs
+openshift_hosted_etcd_storage_nfs_options="*(rw,root_squash,sync,no_wdelay)"
+openshift_hosted_etcd_storage_nfs_directory=/opt/osev3-etcd
+openshift_hosted_etcd_storage_volume_name=etcd-vol2
+openshift_hosted_etcd_storage_access_modes=["ReadWriteOnce"]
+openshift_hosted_etcd_storage_volume_size=1G
+openshift_hosted_etcd_storage_labels={'storage': 'etcd'}
+
+ansible_service_broker_image_prefix=openshift3/
 ansible_service_broker_registry_url="registry.access.redhat.com"
 
 openshift_master_identity_providers=[{'name': 'htpasswd_auth', 'login': 'true', 'challenge': 'true', 'kind': 'HTPasswdPasswordIdentityProvider', 'filename': '/etc/origin/master/htpasswd'}]
 
-openshift_public_hostname=console.cefcfco.com
-openshift_master_default_subdomain=apps.cefcfco.com
+openshift_public_hostname=dev.feng.com
+openshift_master_default_subdomain=apps.dev.feng.com
 
 [masters]
-master.cefcfco.com
+dev.feng.com
 
-[glusterfs]
-master.cefcfco.com glusterfs_devices='[ "/dev/sdb" ]'
-node1.cefcfco.com glusterfs_devices='[ "/dev/sdb" ]'
-node2.cefcfco.com glusterfs_devices='[ "/dev/sdb" ]'
+[nfs]
+dev.feng.com
 
 [etcd]
-master.cefcfco.com
+dev.feng.com
 
 [nodes]
-master.cefcfco.com openshift_schedulable=true openshift_node_labels="{'region': 'infra', 'zone': 'default'}"
-node1.cefcfco.com openshift_schedulable=true openshift_node_labels="{'region': 'primary', 'zone': 'default'}"
-node2.cefcfco.com openshift_schedulable=true openshift_node_labels="{'region': 'primary', 'zone': 'default'}"
+dev.feng.com openshift_schedulable=true openshift_node_labels="{'region': 'infra', 'zone': 'default'}"
