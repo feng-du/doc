@@ -113,4 +113,6 @@ vi ~/.ssh/authorized_keys
 scp -r /c/Users/fengdu/workspace/docker/openshift-ansible root@dev.cefcfco.com:
 
 scp -r /c/Users/fengdu/workspace/doc/openshift/hosts root@feng.com:/etc/ansible/
+
+scp -r root@master.cefcfco.com:/etc/origin/master/ca.crt /c/Users/fengdu/workspace/
 ```
