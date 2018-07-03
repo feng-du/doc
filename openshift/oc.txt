@@ -4,7 +4,7 @@ oc describe pod <pod name>
 
 oc get nodes --show-labels
 
-
+-- Remember restart docker service after installed certificate.
 docker login -u feng -p gwiIgWOypXhirM_NMPHxGPNd0MiRm6xzSVl1bjUwNHs https://docker-registry-default.apps.feng.com
 
 docker build -t fengdu/say .
