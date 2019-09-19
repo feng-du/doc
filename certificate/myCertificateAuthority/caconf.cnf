@@ -62,7 +62,7 @@ x509_extensions         = root_ca_extensions
 # your local environment!
 #
 [ root_ca_distinguished_name ]
-commonName              = wucc.cefcfco.com
+commonName              = cefcfco.com
 stateOrProvinceName     = shanghai
 countryName             = CN
 emailAddress            = fengdu_xiangyang@163.com
